@@ -1,0 +1,47 @@
+{
+  "code": 0,
+  "msg": "",
+  "data": [
+    {
+      "title": "设定管理",
+      "icon": "layui-icon-slider",
+      "jump": "configure/"
+    },
+    {
+      "title": "设定配置",
+      "name": "setting",
+      "icon": "layui-icon-app",
+      "list" : [
+        {
+          "name": "building",
+          "title": "建筑"
+        },
+        {
+          "name": "goods",
+          "title": "物品"
+        },
+        {
+          "name": "general",
+          "title": "武将"
+        },
+        {
+          "name": "soldier",
+          "title": "兵种"
+        },
+        {
+          "name": "equip",
+          "title": "装备"
+        },
+        {
+          "name": "role",
+          "title": "角色"
+        }
+      ]
+    },
+    {
+      "title": "管理员",
+      "icon": "layui-icon-friends",
+      "jump": "admin/"
+    }
+  ]
+}

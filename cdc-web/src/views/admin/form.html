@@ -1,0 +1,70 @@
+
+<div class="layui-form">
+
+  <script type="text/html" template>
+    {{#  if(d.params.id){ }}
+    <div class="layui-form-item">
+      <div class="layui-col-lg6">
+        <label class="layui-form-label">ID</label>
+        <div class="layui-input-block">
+            <input type="text" readonly="1" name="id" value="{{ d.params.id }}" lay-verify="required" autocomplete="off" class="layui-input layui-disabled">
+        </div>
+      </div>
+    </div>
+    {{#  } }}
+  </script>
+
+  <div class="layui-form-item">
+    <div class="layui-col-lg10">
+      <label class="layui-form-label">账号</label>
+      <div class="layui-input-block">
+        <script type="text/html" template>
+          <input type="text" name="account" value="{{ d.params.account || '' }}" required  lay-verify="required" autocomplete="off" class="layui-input">
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="layui-form-item">
+    <div class="layui-col-lg10">
+      <label class="layui-form-label">昵称</label>
+      <div class="layui-input-block">
+        <script type="text/html" template>
+          <input type="text" name="nickname" value="{{ d.params.nickname || '' }}" required  lay-verify="required" autocomplete="off" class="layui-input">
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <div class="layui-form-item">
+    <div class="layui-col-lg10">
+      <label class="layui-form-label">密码</label>
+      <div class="layui-input-block">
+        <script type="text/html" template>
+          <input type="text" name="password" value="{{ d.params.password || '' }}" required  lay-verify="required" autocomplete="off" class="layui-input">
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/html" template>
+  {{#  if(d.params.id){ }}
+    <div class="layui-form-item">
+      <div class="layui-col-lg10">
+        <label class="layui-form-label">允许登陆</label>
+        <div class="layui-input-block">
+          <input type="radio" name="allow_login" value="true" title="允许" {{ (d.params.allow_login===true) ? 'checked' : '' }}>
+          <input type="radio" name="allow_login" value="false" title="禁止" {{ (d.params.allow_login===true) ? '' : 'checked' }}>
+        </div>
+      </div>
+    </div>
+  {{#  } }}
+  </script>
+
+  <div class="layui-form-item">
+    <label class="layui-form-label"></label>
+    <div class="layui-input-inline">
+      <input type="button" lay-submit lay-filter="LAY-form-submit" value="确认" class="layui-btn">
+    </div>
+  </div>
+</div>

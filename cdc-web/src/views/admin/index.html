@@ -1,0 +1,127 @@
+<title>管理员</title>
+
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a>后台</a>
+        <a><cite>管理员</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+
+                <div class="layui-card-body">
+
+                    <table class="layui-hide" id="the-table" lay-filter="the-table"></table>
+
+                    <script type="text/html" id="the-table-toolbar">
+                        <div class="layui-btn-container">
+                            <button class="layui-btn layui-btn-sm" lay-event="create">添加</button>
+                        </div>
+                    </script>
+
+                    <script type="text/html" id="the-table-action">
+                        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+                        <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="delete">删除</a>
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['admin', 'table', 'upload', 'form'], function () {
+
+        let $ = layui.$
+            ,admin = layui.admin
+            ,view = layui.view
+            ,table = layui.table
+            ,form = layui.form;
+
+        table.render({
+            elem: '#the-table',
+            headers: {
+                "Admin-Token": layui.data("gameCreator")["Admin-Token"]
+            }
+            , url: '/api/admins'
+            , title: 'Manager List'
+            , toolbar: '#the-table-toolbar'
+            , limit: 50
+            , page: true
+            , cols: [[
+                // {type: 'checkbox', fixed: 'left'}
+                {field: 'id', title: 'ID', width: 100, fixed: 'left', unresize: true, sort: true}
+                , {field: 'account', title: '账号', width: 180}
+                , {field: 'nickname', title: '昵称', width: 150,}
+                , {field: 'token', title: 'Session Token'}
+                , {field: 'created_time', title: '创建时间', width: 180}
+                , {fixed: 'right', title: '操作', toolbar: '#the-table-action', width: 130}
+            ]]
+        });
+
+
+        let createPopup = function(obj) {
+            admin.popup({
+                title: '新增管理员'
+                ,area: ['1024px', '320px']
+                ,success: function(layero, index){
+                    view(this.id).render('admin/form', obj.data).done(function(){
+                        form.render();
+                        form.on('submit(LAY-form-submit)', function(data){
+                            createRest("/api/admin", data.field, function(res) {
+                                layer.close(index);
+                                layui.table.reload('the-table');
+                            });
+                        });
+                    });
+                }
+            });
+        };
+
+        let editPopup = function(obj) {
+            admin.popup({
+                title: '管理员 : ' + obj.data.nickname
+                ,area: ['1024px', '520px']
+                ,success: function(layero, index){
+                    view(this.id).render('admin/form', obj.data).done(function(){
+                        form.render();
+                        form.on('submit(LAY-form-submit)', function(data){
+                            updateRest("/api/admin", data.field, function(res) {
+                                layer.close(index);
+                                layui.table.reload('the-table');
+                            });
+                        });
+                    });
+                }
+            });
+        };
+
+        let deleteAction = function(obj) {
+            layer.confirm('真的删除行么', function (index) {
+                deleteRest("/api/admin", {"id":obj.data.id}, function(res){
+                    obj.del();
+                    layer.close(index);
+                });
+            });
+        };
+
+        table.on('tool(the-table)', function (obj) {
+            if (obj.event === 'edit') {
+                editPopup(obj);
+            }
+            else if (obj.event === 'delete') {
+                deleteAction(obj);
+            }
+        });
+
+        table.on('toolbar(the-table)', function (obj) {
+            if (obj.event === 'create') {
+                createPopup(obj);
+            }
+        });
+    });
+</script>
