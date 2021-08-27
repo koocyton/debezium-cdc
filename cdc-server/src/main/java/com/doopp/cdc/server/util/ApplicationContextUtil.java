@@ -1,4 +1,4 @@
-package com.doopp.youlin.server.util;
+package com.doopp.cdc.server.util;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

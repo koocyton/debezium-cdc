@@ -1,4 +1,4 @@
-package com.doopp.youlin.server.configuration;
+package com.doopp.cdc.server.configuration;
 
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;

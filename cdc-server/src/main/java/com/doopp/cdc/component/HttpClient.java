@@ -1,6 +1,6 @@
-package com.doopp.youlin.component;
+package com.doopp.cdc.component;
 
-import com.doopp.youlin.util.JsonUtil;
+import com.doopp.cdc.util.JsonUtil;
 import lombok.RequiredArgsConstructor;
 import okhttp3.*;
 import org.springframework.stereotype.Component;

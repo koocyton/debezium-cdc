@@ -1,4 +1,4 @@
-package com.doopp.youlin.util;
+package com.doopp.cdc.util;
 
 import javax.crypto.*;
 import java.security.InvalidKeyException;

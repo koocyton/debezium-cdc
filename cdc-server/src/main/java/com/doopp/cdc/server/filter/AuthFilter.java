@@ -1,11 +1,11 @@
-package com.doopp.youlin.server.filter;
+package com.doopp.cdc.server.filter;
 
-import com.doopp.youlin.pojo.entity.User;
-import com.doopp.youlin.api.service.AuthService;
-import com.doopp.youlin.message.MyAssert;
-import com.doopp.youlin.message.MyError;
-import com.doopp.youlin.message.MyException;
-import com.doopp.youlin.server.util.ApplicationContextUtil;
+import com.doopp.cdc.pojo.entity.User;
+import com.doopp.cdc.api.service.AuthService;
+import com.doopp.cdc.message.MyAssert;
+import com.doopp.cdc.message.MyError;
+import com.doopp.cdc.message.MyException;
+import com.doopp.cdc.server.util.ApplicationContextUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -32,9 +32,7 @@ public class AuthFilter extends OncePerRequestFilter {
         // 不过滤的uri
         String[] notFilterUris = new String[]{
                 "/api/login",
-                "/api/logout",
-                "/api/auth/authentication",
-                "/api/auth/login"
+                "/api/logout"
         };
 
         // 请求的uri

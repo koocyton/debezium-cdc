@@ -1,9 +1,9 @@
-package com.doopp.youlin.server.configuration;
+package com.doopp.cdc.server.configuration;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.*;
-import com.doopp.youlin.util.JsonUtil;
+import com.doopp.cdc.util.JsonUtil;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +28,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 // @EnableRedisHttpSession
 @EnableWebMvc
 @ComponentScan(
-    basePackages = {"com.doopp.youlin.api.controller"},
+    basePackages = {"com.doopp.cdc.api.controller"},
     includeFilters = {
         @ComponentScan.Filter(type = FilterType.ANNOTATION, value = {Controller.class})
     }
@@ -37,8 +37,8 @@ public class MyWebMvcConfigurer implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        // registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+        // registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         registry.addResourceHandler("/**").addResourceLocations("classpath:/public/");
     }
 

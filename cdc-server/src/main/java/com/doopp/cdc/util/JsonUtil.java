@@ -1,4 +1,4 @@
-package com.doopp.youlin.util;
+package com.doopp.cdc.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

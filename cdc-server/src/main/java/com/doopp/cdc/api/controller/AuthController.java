@@ -1,41 +1,29 @@
-package com.doopp.youlin.api.controller;
+package com.doopp.cdc.api.controller;
 
-import com.doopp.youlin.message.MyResponse;
-import com.doopp.youlin.pojo.auth.AuthToken;
-import com.doopp.youlin.pojo.auth.Authentication;
-import com.doopp.youlin.pojo.auth.UserToken;
-import com.doopp.youlin.api.service.AuthService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import com.doopp.cdc.message.MyResponse;
+import com.doopp.cdc.pojo.auth.UserToken;
+import com.doopp.cdc.api.service.AuthService;
+import com.doopp.cdc.pojo.req.LoginReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
-@Api(tags = "Auth")
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/api/auth")
+@RequestMapping(value = "/api")
 public class AuthController {
 
     private final AuthService authService;
 
-    @ApiOperation(value = "获取 Auth 认证需要的 Authentication",
-            notes="获取到 Authentication 用户 Auth 服登陆，注册",
-            httpMethod = "GET"
-    )
-    @GetMapping("/authentication")
-    public MyResponse<Authentication> authentication() {
-        return MyResponse.ok(authService.getAuthentication());
+    @PostMapping("/login")
+    public MyResponse<UserToken> login(@RequestBody LoginReq loginReq) throws IOException {
+        UserToken userToken = authService.userLogin(loginReq);
+        return MyResponse.ok(userToken);
     }
 
-    @ApiOperation(value = "通过 AuthToken 登陆",
-            notes="通过 AuthToken 信息登陆，并获得 User-Token",
-            httpMethod = "POST"
-    )
-    @PostMapping("/login")
-    public MyResponse<UserToken> login(@RequestBody AuthToken authToken) throws IOException {
-        UserToken userToken = authService.authUserLogin(authToken);
-        return MyResponse.ok(userToken);
+    @PostMapping("/logout")
+    public MyResponse<String> logout(@RequestBody LoginReq loginReq) throws IOException {
+        return MyResponse.ok(null);
     }
 }

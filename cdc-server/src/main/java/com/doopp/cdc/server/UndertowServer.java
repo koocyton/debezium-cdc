@@ -1,9 +1,9 @@
-package com.doopp.youlin.server;
+package com.doopp.cdc.server;
 
-import com.doopp.youlin.server.configuration.ApplicationConfiguration;
-import com.doopp.youlin.server.configuration.MyWebMvcConfigurer;
-import com.doopp.youlin.server.filter.AuthFilter;
-import com.doopp.youlin.server.util.ApplicationProperties;
+import com.doopp.cdc.server.configuration.ApplicationConfiguration;
+import com.doopp.cdc.server.configuration.MyWebMvcConfigurer;
+import com.doopp.cdc.server.filter.AuthFilter;
+import com.doopp.cdc.server.util.ApplicationProperties;
 import io.undertow.Undertow;
 import io.undertow.server.HttpHandler;
 import io.undertow.server.handlers.resource.FileResourceManager;

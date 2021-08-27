@@ -1,4 +1,4 @@
-package com.doopp.youlin.server.util;
+package com.doopp.cdc.server.util;
 
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;

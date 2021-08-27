@@ -1,6 +1,6 @@
-package com.doopp.youlin.message;
+package com.doopp.cdc.message;
 
-import com.doopp.youlin.util.VerifyUtil;
+import com.doopp.cdc.util.VerifyUtil;
 import org.springframework.lang.Nullable;
 import org.springframework.util.ObjectUtils;
 

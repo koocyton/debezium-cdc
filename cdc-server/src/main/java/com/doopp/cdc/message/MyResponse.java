@@ -1,4 +1,4 @@
-package com.doopp.youlin.message;
+package com.doopp.cdc.message;
 
 import lombok.Data;
 

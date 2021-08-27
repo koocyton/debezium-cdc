@@ -1,4 +1,4 @@
-package com.doopp.youlin.util;
+package com.doopp.cdc.util;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

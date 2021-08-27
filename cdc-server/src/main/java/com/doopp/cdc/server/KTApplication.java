@@ -1,4 +1,4 @@
-package com.doopp.youlin.server;
+package com.doopp.cdc.server;
 
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;

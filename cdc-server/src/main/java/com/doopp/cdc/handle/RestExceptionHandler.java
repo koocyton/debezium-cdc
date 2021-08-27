@@ -1,8 +1,8 @@
-package com.doopp.youlin.handle;
+package com.doopp.cdc.handle;
 
-import com.doopp.youlin.message.MyError;
-import com.doopp.youlin.message.MyException;
-import com.doopp.youlin.message.MyResponse;
+import com.doopp.cdc.message.MyError;
+import com.doopp.cdc.message.MyException;
+import com.doopp.cdc.message.MyResponse;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
